@@ -1,19 +1,15 @@
 package com.ander.aldeamo.controller;
 
 
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ander.aldeamo.excepciones.ApiException;
@@ -31,15 +27,16 @@ public class ArrayController {
 	private IArrayService service;
 	
 	@GetMapping("/datos")
+	@ResponseBody
 	public ResponseEntity<Object> traerTodos(@RequestParam int idprestamo,@RequestParam int iteraciones) {
 		if(idprestamo>5|idprestamo<=0) {
 			throw new ApiException("Id prestamo acepta valores en los rangos 1 a 5",400);
 		}
 		Array resultado=service.resolver(idprestamo,iteraciones);
 		if(resultado!=null) {
-			JSONObject jo = new JSONObject();
-			jo.put("mensaje", resultado.getInput_array());
-			return ResponseEntity.ok(jo.toString());
+			Map<String, Object> map = new HashMap<>();
+		    map.put("mensaje", resultado.getInput_array());
+			return ResponseEntity.ok(map);
 		}
 		return ResponseEntity.notFound().build();
 	}
