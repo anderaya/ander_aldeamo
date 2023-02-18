@@ -4,7 +4,11 @@ mvn clean package
 
 ## Ejecutar proyecto
 
-mvn spring-boot:run
+	mvn spring-boot:run
+
+o si queremos ejecutar el jar
+
+	java -jar .\target\aldeamo-0.0.1-SNAPSHOT.jar
 
 
 ##Peticion GET resolver, 

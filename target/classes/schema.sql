@@ -1,3 +1,10 @@
+--
+-- Base de datos: test
+--
+
+
+-- --------------------------------------------------------
+
 drop table if exists arrays;
 create table arrays(
   id INT AUTO_INCREMENT primary key,

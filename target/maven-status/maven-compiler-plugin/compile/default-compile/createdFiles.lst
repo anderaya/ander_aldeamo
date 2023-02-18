@@ -1,0 +1,9 @@
+com\ander\aldeamo\controller\ControllerAdvice.class
+com\ander\aldeamo\controller\ArrayController.class
+com\ander\aldeamo\excepciones\Errores.class
+com\ander\aldeamo\excepciones\ApiException.class
+com\ander\aldeamo\AldeamoApplication.class
+com\ander\aldeamo\modelo\Array.class
+com\ander\aldeamo\repositorio\IArrayRepo.class
+com\ander\aldeamo\service\IArrayService.class
+com\ander\aldeamo\service\ArrayServiceImpl.class
